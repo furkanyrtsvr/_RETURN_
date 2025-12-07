@@ -1,0 +1,9 @@
+pip install beautifulsoup4
+pip install Flask
+pip install google-generativeai
+pip install Pillow
+pip install pygame
+pip install requests
+pip install selenium
+pip install thefuzz
+pip install webdriver-manager
