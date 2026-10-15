@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+Your_Gemini_Api_Key.txt
+.DS_Store
+.vscode/
