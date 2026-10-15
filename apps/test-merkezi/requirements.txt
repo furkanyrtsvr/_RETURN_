@@ -1,0 +1,16 @@
+beautifulsoup4
+Flask
+Pillow
+psutil
+py-cpuinfo
+pygame
+pythonnet; sys_platform == "win32"
+requests
+selenium
+speedtest-cli
+thefuzz
+torch
+torchvision
+webdriver-manager
+WMI; sys_platform == "win32"
+inputs
