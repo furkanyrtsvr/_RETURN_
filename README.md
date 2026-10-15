@@ -7,6 +7,29 @@ Telefon ve bilgisayar çevre birimlerini değerlendirmek için Python/Flask taba
 | [Test Merkezi](apps/test-merkezi) | Fiyat/kozmetik değerlendirme, telefon, klavye, gamepad, PC, ses, ekran, fare, dokunmatik, internet, yazma ve kamera | http://localhost:5000 |
 | [Gemini](apps/gemini) | Gemini destekli ürün değerlendirmesi ve beş çevre birimi testi | http://localhost:5001 |
 
+Amaç, farklı cihaz kontrollerini tek ana panelden açmak ve telefon/çevre birimi değerlendirmesini düzenli bir akışta yürütmektir.
+
+## Görseller
+
+Uygulama yerelde çalıştırılarak alınan dört ekran görüntüsü.
+
+### Test Merkezi ana paneli
+
+![Test Merkezi ana paneli](docs/images/01-dashboard.jpg)
+
+### Klavye test ekranı
+
+![Klavye test ekranı](docs/images/02-keyboard.jpg)
+
+### Fare test ekranı
+
+![Fare test ekranı](docs/images/03-mouse.jpg)
+
+### Yazma hızı testi
+
+![Yazma hızı testi](docs/images/04-typing.jpg)
+
+
 ## Kurulum
 
 Windows üzerinde Python 3.11 veya 3.12 önerilir. PC sensör paneli WMI ve .NET/DLL kullanır. Donanım testleri uygun cihaz ve tarayıcı izinleri gerektirir; bütün modüllerin her işletim sisteminde çalıştığı doğrulanmamıştır.
