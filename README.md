@@ -1,21 +1,32 @@
-# ReTurn
+# CihazAnaliz
 
-Telefon ve bilgisayar çevre birimlerini değerlendirmek için Python/Flask tabanlı test araçları.
+**Cihazın ön ve arka fotoğraflarını değerlendirerek görsel incelemeyi ve işlev testlerini bir cihaz kabul akışında birleştiren Python/Flask prototipi.** Projenin hedefi, cihazların bir otomat/kiosk üzerinden değerlendirilmesine temel oluşturmaktır.
 
-| Uygulama | İçerik | Ana adres |
+Mevcut yazılım; fotoğraf yükleme, kozmetik değerlendirme, ürün/fiyat bilgisi ve cihaz türüne uygun işlev testlerini içerir. Fiziksel otomatik fotoğraf çekimi, mekanik cihaz kabulü veya ödeme/teslim otomasyonu bu depoda tamamlanmış özellik olarak sunulmaz.
+
+| Bölüm | İçerik | Ana adres |
 | --- | --- | --- |
-| [Test Merkezi](apps/test-merkezi) | Fiyat/kozmetik değerlendirme, telefon, klavye, gamepad, PC, ses, ekran, fare, dokunmatik, internet, yazma ve kamera | http://localhost:5000 |
-| [Gemini](apps/gemini) | Gemini destekli ürün değerlendirmesi ve beş çevre birimi testi | http://localhost:5001 |
+| [01 — Görsel değerlendirme](01-gorsel-degerlendirme/README.md) | Ön/arka fotoğrafların analizi, cihaz türü ve kozmetik puanı, fiyat bilgisi ve uygun teste yönlendirme | http://localhost:5001 |
+| [02 — İşlev testleri](02-islev-testleri/README.md) | Telefon, klavye, gamepad, PC, ses, ekran, fare, dokunmatik, internet, yazma ve kamera araçları; ek fiyat/kozmetik modülü | http://localhost:5000 |
 
-Amaç, farklı cihaz kontrollerini tek ana panelden açmak ve telefon/çevre birimi değerlendirmesini düzenli bir akışta yürütmektir.
+Gemini, görsel değerlendirme bölümünün kullandığı analiz servisidir; projenin veya bölümün adı değildir. İki bölüm aynı prototipin parçalarıdır; ortak portlar nedeniyle mevcut sürümde aynı anda çalıştırılmaz.
+
+```mermaid
+flowchart LR
+  A[Cihazın ön ve arka fotoğrafları] --> B[Görsel değerlendirme]
+  B --> C[Kozmetik durum ve cihaz bilgisi]
+  C --> D[Uygun işlev testi]
+  D --> E[Değerlendirme akışı]
+  E -. Hedeflenen entegrasyon .-> F[Otomat / kiosk ile cihaz kabulü]
+```
 
 ## Görseller
 
-Uygulama yerelde çalıştırılarak alınan dört ekran görüntüsü.
+Önceki sürüm yerelde çalıştırılarak alınan dört ekran görüntüsü. Görsellerde önceki arayüz adı görülebilir; yeni bölüm adı İşlev Testleri’dir.
 
-### Test Merkezi ana paneli
+### İşlev testleri ana paneli
 
-![Test Merkezi ana paneli](docs/images/01-dashboard.jpg)
+![İşlev testleri ana paneli](docs/images/01-dashboard.jpg)
 
 ### Klavye test ekranı
 
@@ -38,33 +49,33 @@ Depo kökünde PowerShell ile:
 
 ```powershell
 py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r apps/test-merkezi/requirements.txt
-.\.venv\Scripts\python.exe apps/test-merkezi/main.py
+.\.venv\Scripts\python.exe -m pip install -r 02-islev-testleri/requirements.txt
+.\.venv\Scripts\python.exe 02-islev-testleri/main.py
 ```
 
-Kamera modülü için aşağıdaki sertifika adımını tamamlayın. Diğer modüller bağımsız başlatılabilir: `python apps/test-merkezi/keyboard_tester.py`.
+Kamera modülü için aşağıdaki sertifika adımını tamamlayın. Diğer modüller bağımsız başlatılabilir: `python 02-islev-testleri/keyboard_tester.py`.
 
-### Gemini uygulaması
+### Görsel değerlendirme uygulaması
 
 Ayrı sanal ortam kullanabilirsiniz. Bağımlılıkları yükleyin ve kendi API anahtarınızı ortam değişkeniyle verin:
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r apps/gemini/requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r 01-gorsel-degerlendirme/requirements.txt
 $env:GEMINI_API_KEY = "KENDI_ANAHTARINIZ"
-.\.venv\Scripts\python.exe apps/gemini/main.py
+.\.venv\Scripts\python.exe 01-gorsel-degerlendirme/main.py
 ```
 
-Alternatif olarak `apps/gemini/Your_Gemini_Api_Key.example.txt` dosyasını aynı klasörde `Your_Gemini_Api_Key.txt` adına kopyalayıp düzenleyin. Gerçek anahtar Git tarafından dışlanır. Kod `google.genai` kullandığı için bağımlılık `google-genai` paketidir.
+Alternatif olarak `01-gorsel-degerlendirme/Your_Gemini_Api_Key.example.txt` dosyasını aynı klasörde `Your_Gemini_Api_Key.txt` adına kopyalayıp düzenleyin. Gerçek anahtar Git tarafından dışlanır. Kod `google.genai` kullandığı için bağımlılık `google-genai` paketidir.
 
-**İki uygulamayı aynı anda başlatmayın:** 5001–5006 portları ortak kullanılır. Test Merkezi alt servisleri 5001–5012, Gemini alt servisleri 5002–5006 portlarındadır.
+**İki uygulamayı aynı anda başlatmayın:** 5001–5006 portları ortak kullanılır. İşlev Testleri alt servisleri 5001–5012, Görsel Değerlendirme alt servisleri 5002–5006 portlarındadır.
 
 ### Kamera ve yerel HTTPS
 
-Kamera servisi `apps/test-merkezi/localhost.pem` ve `localhost-key.pem` dosyalarını bekler. Güvendiğiniz kaynaktan kurduğunuz [mkcert](https://github.com/FiloSottile/mkcert) ile bilgisayarınızda yeni sertifika üretin:
+Kamera servisi `02-islev-testleri/localhost.pem` ve `localhost-key.pem` dosyalarını bekler. Güvendiğiniz kaynaktan kurduğunuz [mkcert](https://github.com/FiloSottile/mkcert) ile bilgisayarınızda yeni sertifika üretin:
 
 ```powershell
 mkcert -install
-mkcert -cert-file apps/test-merkezi/localhost.pem -key-file apps/test-merkezi/localhost-key.pem localhost 127.0.0.1 ::1
+mkcert -cert-file 02-islev-testleri/localhost.pem -key-file 02-islev-testleri/localhost-key.pem localhost 127.0.0.1 ::1
 ```
 
 Ardından `https://localhost:5012` adresini kullanın. Telefon/LAN kullanımı ayrıca doğru sertifika adresleri, güven zinciri ve tarayıcı izinleri gerektirir. Depoda eskiden paylaşılan özel anahtarı yeniden kullanmayın; bu düzenleme geçmiş commitlerden anahtarı silmez.
@@ -72,10 +83,11 @@ Ardından `https://localhost:5012` adresini kullanın. Telefon/LAN kullanımı a
 ## Klasör yapısı
 
 ```text
-apps/test-merkezi/   On iki test servisi, ana panel, model ve DLL dosyaları
-apps/gemini/         Gemini paneli, beş test ve örnek görseller
-docs/               Eski/yeni dosya haritası ve sürüm rehberi
-scripts/            Kaynak kontrolü ve sürüm araçları
+01-gorsel-degerlendirme/  Ön/arka görsellerden cihaz değerlendirmesi
+02-islev-testleri/       Cihaz ve çevre birimi işlev kontrolleri
+README.md                Sistem tanıtımı ve başlangıç rehberi
+docs/                    Görseller, dosya taşıma ve sürüm rehberi
+scripts/                 Kaynak kontrolü ve yayın araçları
 ```
 
 [Dosya taşıma haritası](docs/DOSYA_TASIMA.md) eski isimlerin karşılığını gösterir. Başlatıcı ve model yolları artık uygulama klasöründen türetilir; Windows kullanıcı adı düzenlemek gerekmez.

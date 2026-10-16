@@ -52,7 +52,7 @@ def sunucu_kontrol_et(dosya_adi, port):
     return True, "OK"
 
 print("="*60)
-print("COKLU TEST MERKEZI BASLATILIYOR...")
+print("CIHAZ ANALIZ - ISLEV TESTLERI BASLATILIYOR...")
 print("="*60)
 
 for dosya_adi, port in sunucular.items():
@@ -103,7 +103,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Test Merkezi - Ana Panel</title>
+    <title>🎯 İşlev Testleri - Ana Panel</title>
     <style>
         :root {
             /* Aydınlık Tema (Varsayılan) */
@@ -525,7 +525,7 @@ HTML_TEMPLATE = """
 
     <div class="sidebar">
         <div class="logo">
-            <h1>🎯 TEST MERKEZİ</h1>
+            <h1>🎯 İŞLEV TESTLERİ</h1>
             <p>Ana Kontrol Paneli</p>
         </div>
 
@@ -594,7 +594,7 @@ HTML_TEMPLATE = """
     <div class="main-content">
         <div class="header">
             <div>
-                <h2 id="pageTitle">Test Merkezi</h2>
+                <h2 id="pageTitle">İşlev Testleri</h2>
                 <p id="pageDesc">Tüm test hizmetlerinizi yönetin</p>
             </div>
             <button class="refresh-btn" onclick="refreshPage()">🔄 Yenile</button>
@@ -605,7 +605,7 @@ HTML_TEMPLATE = """
 
     <script>
         const pages = {
-            'home': { title: '🎯 Test Merkezi', desc: 'Tüm test hizmetlerini tek yerden yönetin', render: renderHome },
+            'home': { title: '🎯 İşlev Testleri', desc: 'Tüm test hizmetlerini tek yerden yönetin', render: renderHome },
             'services': { title: '🔧 Hizmetler', desc: 'Mevcut test hizmetlerini ve durumlarını görüntüleyin', render: renderServices },
             'phone-defect': { title: '📱 Telefon Değerlendirme', desc: 'Ekran kusurlarını tespit edin ve fiyat tahmini alın', url: 'http://localhost:5001', port: 5001 },
             'phone-info': { title: '📊 Telefon Bilgileri', desc: 'ADB ile bağlı cihazın teknik özelliklerini görün', url: 'http://localhost:5002', port: 5002 },
@@ -684,7 +684,7 @@ HTML_TEMPLATE = """
             return `
                 <div style="background: var(--bg-card); padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px var(--shadow-color);">
                     <div style="font-size: 80px; margin-bottom: 20px;">🎯</div>
-                    <h2 style="color: var(--accent-color); margin-bottom: 15px; font-size: 28px;">Test Merkezine Hoş Geldiniz</h2>
+                    <h2 style="color: var(--accent-color); margin-bottom: 15px; font-size: 28px;">İşlev Testlerine Hoş Geldiniz</h2>
                     <p style="color: var(--text-secondary); font-size: 16px; margin-bottom: 30px;">
                         Sol menüden istediğiniz sayfayı seçerek başlayın
                     </p>
@@ -719,7 +719,7 @@ HTML_TEMPLATE = """
                     <h3 style="color: var(--accent-color); margin-bottom: 20px; font-size: 22px;">📖 Yardım & Rehber</h3>
 
                     <div style="margin-bottom: 30px;">
-                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">❓ Test Merkezini Nasıl Kullanırım?</h4>
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">❓ İşlev Testlerini Nasıl Kullanırım?</h4>
                         <p style="color: var(--text-secondary); line-height: 1.6;">
                             Sol menüden test etmek istediğiniz hizmeti seçin. Her hizmet, ilgili sunucuya bağlanacak ve test aracını tam ekran olarak gösterecektir.<br>
                             Ana sayfaya dönmek veya başka bir testi seçmek için sol üstteki <strong>☰</strong> ikonuna basarak menüyü açabilirsiniz.

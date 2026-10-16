@@ -539,7 +539,7 @@ def index():
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cihaz Değerlendirme Sistemi</title>
+    <title>CihazAnaliz — Görsel Değerlendirme</title>
     <style>
         :root {
             --c-bg-grad-start: #667eea; --c-bg-grad-end: #764ba2; --c-body-bg: #f0f2f5; --c-text: #333; --c-text-secondary: #666; --c-container-bg: white; --c-shadow: 0 10px 30px rgba(0,0,0,0.1); --c-upload-border: #667eea; --c-upload-hover-bg: #f8f9ff; --c-upload-drag-bg: #e0e7ff; --c-input-border: #d1d5db; --c-input-focus-border: #667eea; --c-result-card-bg: #ffffff; --c-price-border: #667eea; --c-price-value: #667eea; --c-score-excellent: #10b981; --c-score-good: #f59e0b; --c-score-bad: #ef4444; --c-spinner-color: #667eea; --c-primary: #667eea;
@@ -598,7 +598,7 @@ def index():
     </head>
     <body>
     <div class="container">
-        <h1>Cihaz Değerlendirme</h1>
+        <h1>Görsel Değerlendirme</h1>
         <form id="analyzeForm">
             <div class="upload-container">
                 <div class="upload-area" id="uploadAreaFront">

@@ -5,9 +5,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 count = 0
-for folder in (ROOT / 'apps').iterdir():
-    if not folder.is_dir():
-        continue
+for folder_name in ('01-gorsel-degerlendirme', '02-islev-testleri'):
+    folder = ROOT / folder_name
+    assert folder.is_dir(), f'Missing application folder: {folder_name}'
     for path in folder.glob('*.py'):
         tree = ast.parse(path.read_text(encoding='utf-8-sig'), filename=str(path))
         count += 1

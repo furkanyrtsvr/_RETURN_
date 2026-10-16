@@ -11,6 +11,6 @@
 
 Günlük kullanım: kaynak değişikliklerini commit edip `git push origin main` çalıştırın. Önce `git pull --ff-only` ile otomatik sürüm commit'ini alın. Çalışma kopyasında kaydedilip GitHub'a gönderilmeyen dosyalar Actions'ı tetiklemez.
 
-Bu akış GitHub Release üretir; çalışan web sitesine dağıtım, npm paketi veya Windows EXE üretimi yapmaz. ReTurn kontrolleri yalnız sözdizimi ve dosya yapısı doğrulamasıdır; donanım ve API kabul testi değildir.
+Bu akış GitHub Release üretir; çalışan web sitesine dağıtım, npm paketi veya Windows EXE üretimi yapmaz. CihazAnaliz kontrolleri yalnız sözdizimi ve dosya yapısı doğrulamasıdır; donanım ve API kabul testi değildir.
 
 GitHub CLI yayın seçeneği: https://cli.github.com/manual/gh_release_create
