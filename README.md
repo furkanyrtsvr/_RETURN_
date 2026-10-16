@@ -26,19 +26,19 @@ flowchart LR
 
 ### İşlev testleri ana paneli
 
-![İşlev testleri ana paneli](docs/images/01-dashboard.jpg)
+![İşlev testleri ana paneli](maintenance/docs/images/01-dashboard.jpg)
 
 ### Klavye test ekranı
 
-![Klavye test ekranı](docs/images/02-keyboard.jpg)
+![Klavye test ekranı](maintenance/docs/images/02-keyboard.jpg)
 
 ### Fare test ekranı
 
-![Fare test ekranı](docs/images/03-mouse.jpg)
+![Fare test ekranı](maintenance/docs/images/03-mouse.jpg)
 
 ### Yazma hızı testi
 
-![Yazma hızı testi](docs/images/04-typing.jpg)
+![Yazma hızı testi](maintenance/docs/images/04-typing.jpg)
 
 
 ## Kurulum
@@ -86,20 +86,19 @@ Ardından `https://localhost:5012` adresini kullanın. Telefon/LAN kullanımı a
 01-gorsel-degerlendirme/  Ön/arka görsellerden cihaz değerlendirmesi
 02-islev-testleri/       Cihaz ve çevre birimi işlev kontrolleri
 README.md                Sistem tanıtımı ve başlangıç rehberi
-docs/                    Görseller, dosya taşıma ve sürüm rehberi
-scripts/                 Kaynak kontrolü ve yayın araçları
+maintenance/             Ortak dokümanlar, görseller ve yayın araçları
 ```
 
-[Dosya taşıma haritası](docs/DOSYA_TASIMA.md) eski isimlerin karşılığını gösterir. Başlatıcı ve model yolları artık uygulama klasöründen türetilir; Windows kullanıcı adı düzenlemek gerekmez.
+[Dosya taşıma haritası](maintenance/docs/DOSYA_TASIMA.md) eski isimlerin karşılığını gösterir. Başlatıcı ve model yolları artık uygulama klasöründen türetilir; Windows kullanıcı adı düzenlemek gerekmez.
 
 ## Doğrulama ve sınırlar
 
-`python scripts/check_source.py` Python sözdizimini, başlatıcı hedeflerini ve bağımlılık dosyalarının biçimini kontrol eder. Bu kontrol gerçek kamera, gamepad, mikrofon, WMI, Selenium veya Gemini kabul testi değildir.
+`python maintenance/scripts/check_source.py` Python sözdizimini, başlatıcı hedeflerini ve bağımlılık dosyalarının biçimini kontrol eder. Bu kontrol gerçek kamera, gamepad, mikrofon, WMI, Selenium veya Gemini kabul testi değildir.
 
 Bazı Flask servisleri mevcut kodda debug ve LAN dinleme ayarları kullanır. Araçlar kişisel geliştirme/test içindir; internet sunucusu olarak yayımlamayın. Fiyat ve kozmetik model çıktıları garantili ekspertiz veya fiyat değildir. Eğitimli model yüklenemediğinde mevcut kod yer tutucu model kullanır.
 
 ## Sürümler ve lisans
 
-[Değişiklikler](CHANGELOG.md) · [Sürüm rehberi](docs/SURUMLEME.md)
+[Değişiklikler](CHANGELOG.md) · [Sürüm rehberi](maintenance/docs/SURUMLEME.md)
 
 Depoya proje lisansı eklenmedi; üçüncü taraf DLL, model ve araçların dağıtım koşulları ayrıca değerlendirilmelidir.

@@ -14,3 +14,5 @@ Günlük kullanım: kaynak değişikliklerini commit edip `git push origin main`
 Bu akış GitHub Release üretir; çalışan web sitesine dağıtım, npm paketi veya Windows EXE üretimi yapmaz. CihazAnaliz kontrolleri yalnız sözdizimi ve dosya yapısı doğrulamasıdır; donanım ve API kabul testi değildir.
 
 GitHub CLI yayın seçeneği: https://cli.github.com/manual/gh_release_create
+
+Ortak araçlar `maintenance/scripts/`, bu rehber ve görseller `maintenance/docs/` altındadır. Depo kökünden `python maintenance/scripts/check_source.py` çalıştırın. Actions işinin çalışma dizini depo köküdür; `VERSION` kökte kalır.

@@ -29,13 +29,13 @@ PC modülü Windows WMI/.NET/DLL, bazı kontroller ise fiziksel cihaz ve tarayı
 
 Önceki sürümden gerçek yerel ekran görüntüleri; bazı başlıklarda eski Test Merkezi adı görülebilir.
 
-![İşlev testleri paneli](../docs/images/01-dashboard.jpg)
+![İşlev testleri paneli](../maintenance/docs/images/01-dashboard.jpg)
 
-![Klavye kontrolü](../docs/images/02-keyboard.jpg)
+![Klavye kontrolü](../maintenance/docs/images/02-keyboard.jpg)
 
-![Fare kontrolü](../docs/images/03-mouse.jpg)
+![Fare kontrolü](../maintenance/docs/images/03-mouse.jpg)
 
-![Yazma kontrolü](../docs/images/04-typing.jpg)
+![Yazma kontrolü](../maintenance/docs/images/04-typing.jpg)
 
 Model dosyası, DLL’ler ve üçüncü taraf araçlar korunur. Model yüklenemediğinde eski fiyat/kozmetik kodundaki yer tutucu davranış devam eder. Otomat/kiosk üzerinden gözetimsiz üretim kabul testi bu prototip için doğrulanmış değildir.
 

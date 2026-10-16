@@ -3,7 +3,7 @@ import ast
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 count = 0
 for folder_name in ('01-gorsel-degerlendirme', '02-islev-testleri'):
     folder = ROOT / folder_name

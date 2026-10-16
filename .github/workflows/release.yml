@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python scripts/check_source.py
+      - run: python maintenance/scripts/check_source.py
   release:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: verify
@@ -49,7 +49,7 @@ jobs:
       - name: Select next version
         if: steps.head.outputs.current == 'true'
         id: version
-        run: python3 scripts/release_version.py
+        run: python3 maintenance/scripts/release_version.py
       - name: Commit release metadata and tag
         if: steps.head.outputs.current == 'true'
         env:
